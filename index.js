@@ -100,13 +100,16 @@ function runBg(cmd, env){
 }
 
 let functions = {};
+let savedDesc = ""
 let docs = {};
 const task = (name, fn) => {
     functions[name] = fn;
+    docs[name] = savedDesc;
+    savedDesc = "";
 }
 
-const desc = (name, desc) => {
-    docs[name] = desc;
+const desc = (description) => {
+    savedDesc = description;
 }
 
 const runTask = async (name, args) => {
