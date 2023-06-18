@@ -17,3 +17,11 @@ async function main(){
     proc.kill()
 }
 ```
+
+### jake? never heard of 'em
+
+I use jake a lot to do local automations, but jake doesn't work if you're delivering your
+project as a `bin` using npmrc - so we can use rundmc's `task` and `desc` functions to
+monkeypatch jake's `task` and `desc` functions, then call `runCommandFromArgsIfArgsExist`
+to turn any bin.js into a local task runner, using (I hope) essentially the same Jakefile
+that we've always been using.
